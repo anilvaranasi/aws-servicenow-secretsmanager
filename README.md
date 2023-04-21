@@ -1,4 +1,5 @@
 # aws-servicenow-secretsmanager
+This project is licensed under the terms of the MIT license.
 ServiceNow jar file creation to access aws secrets manager
 This JAR should be deployed on a midserver that has permission to communicate with AWS secrets manager.
 Required environment variables should be setup.
@@ -13,10 +14,10 @@ Credentials and config file setup
 Environment variable setup
 
 AWS_SHARED_CREDENTIALS_FILE -> C:\Users\XXXXXXXUSER\.aws\credentials
-AWS_SECRET_ACCESS_KEY ->qVbOp61XwvjACjsi2JLGOLWpCxYqxhpqyVYxekKL
+AWS_SECRET_ACCESS_KEY ->qVbOp61XwvjACjsiXXXXXYqxhpqyVYxekKL
 AWS_DEFAULT_REGION -> us-east-2
 AWS_CONFIG_FILE -> C:\Users\XXXXXXXUSER\.aws\config
-AWS_ACCESS_KEY_ID -> AKIAT6UMFIX5ZIOIYWV6
+AWS_ACCESS_KEY_ID -> AKIAT6XXXIOIYWV6
 HOME -> C:\Users\XXXXXXXUSER
 Add Maven bin to PATH
 Install new software in eclipse to install aws components
@@ -28,8 +29,8 @@ output=json
 
 Contents of credentials file file name : credential
 [default]
-aws_access_key_id=AKIAT6UMFIX5ZIOIYWV6
-aws_secret_access_key=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
+aws_access_key_id=AKIXXXXX5ZIOIYWV6
+aws_secret_access_key=qVbOp61XXXXXXGOLWpCxYqxhpqyVYxekKL
 
 
 Create new project in Maven
