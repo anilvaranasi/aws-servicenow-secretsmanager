@@ -31,7 +31,9 @@ public class Hello {
 		// Your code goes here.
 		System.out.println("Hello, World secret!" + secret);
 		try {
-			FileOutputStream fout = new FileOutputStream("D:\\testout.txt");
+			String fileName = args[0];
+			//FileOutputStream fout = new FileOutputStream("D:\\testout.txt");
+			FileOutputStream fout = new FileOutputStream(fileName);
 			String s = "Welcome to Varan Java. " + secret;
 			byte b[] = s.getBytes();// converting string into byte array
 			fout.write(b);
