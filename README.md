@@ -192,3 +192,4 @@ java -jar lambda-java-example-0.0.1-SNAPSHOT.jar D:\\testout.txt
 
 There is a ServiceNow updateset that can be used to run this jar and fetch secret string as a subflow output.
 link to Servicenow share = 
+https://developer.servicenow.com/connect.do#!/share/contents/3287388_integration_hub_spoke_to_read_secret_from_aws_secrets_manager?t=PRODUCT_DETAILS
