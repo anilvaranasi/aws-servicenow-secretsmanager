@@ -189,3 +189,6 @@ C:\Program Files\Java\jdk-20\bin
 java -jar lambda-java-example-0.0.1-SNAPSHOT.jar D:\\testout.txt
 
 18:29
+
+There is a ServiceNow updateset that can be used to run this jar and fetch secret string as a subflow output.
+link to Servicenow share = 
