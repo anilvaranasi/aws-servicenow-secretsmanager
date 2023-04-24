@@ -99,11 +99,19 @@ Add Java class to project
 
 Add required code to Hello class this code is available in the aws secret record under java tab
 package example;
+
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
+import org.json.*;
+//import org.json.JSONException;
 import java.io.FileOutputStream;
+//import org.json.simple.JSONObject;
+//import org.json.simple.JSONArray;
+//import java.io.FileWriter;
+//import java.io.IOException;
+import java.util.HashMap;
 
 public class Hello {
 
@@ -127,25 +135,27 @@ public class Hello {
 		}
 
 		String secret = getSecretValueResponse.secretString();
+		JSONObject secretObj = new JSONObject(secret);
+		String secretValue = secretObj.getString(secretName);
 
 		// Your code goes here.
-		System.out.println("Hello, World secret!" + secret);
+		String fileName = args[0];
 		try {
-			String fileName = args[0];
-			//FileOutputStream fout = new FileOutputStream("D:\\testout.txt");
 			FileOutputStream fout = new FileOutputStream(fileName);
-			String s = "Welcome to Varan Java. " + secret;
-			byte b[] = s.getBytes();// converting string into byte array
+			HashMap<String, Object> additionalDetails = new HashMap<String, Object>();
+			additionalDetails.put("region", region.toString());
+			additionalDetails.put("secret", secretValue);
+			byte b[] = secretValue.getBytes();// converting string into byte array
 			fout.write(b);
 			fout.close();
-			System.out.println("success...");
+			// System.out.println("success...");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+
 	}
+
 }
-
-
 Update project properties ->Java compiler -> uncheck -> use default compliance settings -> update generated class file compatibility -> 1.8, source 
 compatibility -> 1.8, complier compliance level -> 1.8
 
@@ -179,3 +189,7 @@ C:\Program Files\Java\jdk-20\bin
 java -jar lambda-java-example-0.0.1-SNAPSHOT.jar D:\\testout.txt
 
 18:29
+
+There is a ServiceNow updateset that can be used to run this jar and fetch secret string as a subflow output.
+link to Servicenow share = 
+https://developer.servicenow.com/connect.do#!/share/contents/3287388_integration_hub_spoke_to_read_secret_from_aws_secrets_manager?t=PRODUCT_DETAILS
